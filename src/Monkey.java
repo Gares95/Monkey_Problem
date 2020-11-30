@@ -19,6 +19,7 @@ public class Monkey implements Runnable{
 			Thread.sleep((1000));
 			System.out.println(color + " monkey ready to cross to the "+ way[mDir]+".");
 			rope.arrive(mDir);
+			Thread.sleep((4000));
 			System.out.println(color + " monkey crossing the rope to the "+ way[mDir]+"." );
 			rope.cross(mDir);
 			rope.leave(mDir);

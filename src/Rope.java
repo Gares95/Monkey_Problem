@@ -57,7 +57,6 @@ public class Rope {
 		System.out.println(numMonkeysWaiting[direction] + " monkey/ies waiting to cross to the "+ way[direction]+".");
 		monkeysCrossing[direction]++;
 		System.out.println(monkeysCrossing[direction] + " monkey/ies crossing to the "+ way[direction]+".");
-		Thread.sleep((4000));
 		System.out.println("Cross closed.");
 	}
 	
