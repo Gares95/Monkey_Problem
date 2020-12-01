@@ -3,7 +3,13 @@ public class Main {
 	public static void main( String[] args) {
 		Rope rope = new Rope();
 		String [] colors = new String[] {"Red", "Yellow", "Blue", "Brown", "White", "Grey", "Pink", "Orange"};
-		final int nMonkeys = 3;
+		final int nMonkeys;
+		if ((args.length > 0)&&(Integer.parseInt(args[0]) < 9)) {
+			nMonkeys = Integer.parseInt(args[0]);
+		}
+		else{
+			nMonkeys = 8;
+		}
 		Thread [] hilos = new Thread[nMonkeys];
 		Random random = new Random();
 		
@@ -13,4 +19,5 @@ public class Main {
 		}
 		
 	}
+
 }

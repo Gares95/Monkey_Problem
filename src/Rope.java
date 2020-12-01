@@ -5,14 +5,13 @@ public class Rope {
 
 	private String [] way = new String[]{"East", "West"};
 	
-	
 	public Rope() {
 		numMonkeysWaiting = new int[]{0,0};
 		monkeysCrossing = new int[]{0,0};
 	}
 	
 	public synchronized void cross(int direction) throws InterruptedException {
-		System.out.println("Arrive open.");
+//		System.out.println("Cross open.");
 		numMonkeysWaiting[direction]++;
 		System.out.println(numMonkeysWaiting[direction] + " monkey/s waiting to cross to the "+ way[direction]+".");
 
@@ -30,7 +29,7 @@ public class Rope {
 				wait();
 			}catch (InterruptedException e) {
 				e.printStackTrace();
-				System.out.println("1 monkey down.");
+				System.out.println("Operation Interrupted.");
 			}
 		}
 		numMonkeysWaiting[direction]--;
@@ -39,14 +38,16 @@ public class Rope {
 		
 		System.out.println(numMonkeysWaiting[direction] + " monkey/s waiting to cross to the "+ way[direction]+".");
 		System.out.println(monkeysCrossing[direction] + " monkey/s crossing to the "+ way[direction]+".");
+//		System.out.println("Cross closed.");
+	}
+	
+	public synchronized void leave(int direction) {
+//		System.out.println("Leave open.");
+		monkeysCrossing[direction]--;
+		notifyAll();
+		System.out.println("1 monkey has finished crossing to the "+ way[direction]+". "+  monkeysCrossing[direction] + " monkey/s left to cross to the "+ way[direction]);
+//		System.out.println("Leave closed.");
 		
 	}
 
-	public synchronized void leave(int direction) {
-		System.out.println("Leave open.");
-		monkeysCrossing[direction]--;
-		notifyAll();
-		System.out.println("1 monkey has finished crossing to the "+ way[direction]+ ". "+ monkeysCrossing[direction] + " monkey/s left to cross to the "+ way[direction]);
-		System.out.println("Leave closed.");	
-	}
 }
