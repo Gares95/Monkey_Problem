@@ -1,7 +1,5 @@
-//import java.util.Random;
 
 public class Rope {
-//	private int monkeyDirection;
 	private int[] numMonkeysWaiting;
 	private int[] monkeysCrossing;
 
@@ -13,17 +11,20 @@ public class Rope {
 		monkeysCrossing = new int[]{0,0};
 	}
 	
-	public synchronized void arrive(int direction) throws InterruptedException {
+	public synchronized void cross(int direction) throws InterruptedException {
 		System.out.println("Arrive open.");
 		numMonkeysWaiting[direction]++;
-		System.out.println(numMonkeysWaiting[direction] + " monkey/ies waiting to cross to the "+ way[direction]+".");
+		System.out.println(numMonkeysWaiting[direction] + " monkey/s waiting to cross to the "+ way[direction]+".");
 
 		int auxMessage = 0;
 		while((monkeysCrossing[1-direction] > 0)||((monkeysCrossing[direction] > 0)&&(numMonkeysWaiting[1-direction]>0)))
 		{
 			try{
 				if(auxMessage==0) {
-					System.out.println("Monkey waiting because there are other monkeys in the opposite side waiting already.");
+					if(monkeysCrossing[1-direction] > 0)
+						System.out.println("Monkey waiting to other monkey finish crossing in opposite direction.");
+					if((monkeysCrossing[direction] > 0)&&(numMonkeysWaiting[1-direction]>0))
+						System.out.println("Monkey waiting because there are other monkeys in the opposite side waiting already.");
 					auxMessage++;
 				}
 				wait();
@@ -32,40 +33,20 @@ public class Rope {
 				System.out.println("1 monkey down.");
 			}
 		}
-//		monkeyDirection = direction;
-		System.out.println("Arrive closed.");
-	}
-	
-	public synchronized void cross(int direction) throws InterruptedException {
-		System.out.println("Cross open.");
 		numMonkeysWaiting[direction]--;
-		notifyAll();
-		int auxMessage = 0;
-		while(monkeysCrossing[1-direction] > 0)
-		{
-			try{
-				if(auxMessage==0) {
-					System.out.println("Monkey waiting to other monkey finish crossing in opposite direction.");
-					auxMessage++;
-				}
-				wait();
-			}catch (InterruptedException e) {
-				e.printStackTrace();
-				System.out.println("1 monkey down.");
-			}
-		}
-		System.out.println(numMonkeysWaiting[direction] + " monkey/ies waiting to cross to the "+ way[direction]+".");
 		monkeysCrossing[direction]++;
-		System.out.println(monkeysCrossing[direction] + " monkey/ies crossing to the "+ way[direction]+".");
-		System.out.println("Cross closed.");
+		notifyAll();
+		
+		System.out.println(numMonkeysWaiting[direction] + " monkey/s waiting to cross to the "+ way[direction]+".");
+		System.out.println(monkeysCrossing[direction] + " monkey/s crossing to the "+ way[direction]+".");
+		
 	}
-	
+
 	public synchronized void leave(int direction) {
 		System.out.println("Leave open.");
 		monkeysCrossing[direction]--;
 		notifyAll();
-		System.out.println("Leave closed.");
-		
+		System.out.println("1 monkey has finished crossing to the "+ way[direction]+ ". "+ monkeysCrossing[direction] + " monkey/s left to cross to the "+ way[direction]);
+		System.out.println("Leave closed.");	
 	}
-
 }
