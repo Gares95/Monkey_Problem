@@ -1,11 +1,11 @@
 
-import java.util.Random;
+//import java.util.Random;
 public class Monkey implements Runnable{
 	Rope rope;
 	private int mDir;
 	private String color;
 	private String [] way = new String[]{"East", "West"};
-	Random random = new Random();
+//	Random random = new Random();
 	public Monkey (Rope rope, int mDir, String color) {
 		this.rope = rope;
 		this.mDir = mDir;
@@ -13,7 +13,8 @@ public class Monkey implements Runnable{
 	}
 	public void run() {
 		try {
-			Thread.sleep((random.nextInt(9)*1000));
+			// Already implemented the time arrival in the main Thread
+			// Thread.sleep((random.nextInt(9)*1000));
 			
 			System.out.println(color + " monkey showed up from "+ way[1-mDir]+" wanting to cross to the " + way[mDir]+".");
 			Thread.sleep((1000));
