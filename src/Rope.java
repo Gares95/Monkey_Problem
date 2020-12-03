@@ -1,4 +1,5 @@
-
+/* Rope class that contains the methods to cross the Rope. It also contains the conditions and functions
+ * to handle concurrency.*/
 public class Rope {
 	// Array that will contain the number of "Monkeys" waiting in each side ([0] = "East", [1]= "West")
 	private int[] numMonkeysWaiting;
