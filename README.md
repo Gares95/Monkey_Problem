@@ -1,6 +1,6 @@
 # Monkey_Problem
 ***
-This repository includes the files necessary to implement a program using Java which will serve as a concurrency example.
+This repository includes the files necessary to implement a Java program which will serve as a concurrency example.
 
 The main objective of the program is to perform an efficient concurrency program where the instances of the class _Monkey_ have to share an instance of the class _Rope_ to cross a canyon.
 
