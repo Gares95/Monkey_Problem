@@ -28,7 +28,7 @@ public class Rope {
 	 * To select monkeys of each side using the arrays, the variable "direction" given as parameter will be used.
 	 * To indicate the opposite side "1-direction" will be used (considering that the only two values possible for 
 	 * the variable "direction" are 1 and 0).*/
-	public synchronized void cross(int direction) throws InterruptedException {
+	public synchronized void cross(int direction, String name) throws InterruptedException {
 		
 		// When the method begins it adds a "Monkey" to the array indicating the number of "Monkeys" waiting in each side
 		numMonkeysWaiting[direction]++;
@@ -51,10 +51,10 @@ public class Rope {
 				// Auxiliar messages to see the program execution
 				if(auxMessage==0) {
 					if(monkeysCrossing[1-direction] > 0) {
-						System.out.println("Monkey waiting to other monkey finish crossing in opposite direction.");
+						System.out.println(name+ " monkey waiting to other monkey finish crossing in opposite direction.");
 					}
 					if((monkeysCrossing[direction] > 0)&&(directionPriority[1-direction]==1)) 
-						System.out.println("Monkey waiting because there are other monkeys in the opposite side waiting already.");					
+						System.out.println(name+ " monkey waiting because there are other monkeys in the opposite side waiting already.");					
 					auxMessage++;
 				}
 				// invoke wait to suspend the current thread until another thread issues a notification
@@ -83,10 +83,10 @@ public class Rope {
 		System.out.println(monkeysCrossing[direction] + " monkey/s crossing to the "+ way[direction]+".");
 	}
 	
-	public synchronized void leave(int direction) {
+	public synchronized void leave(int direction, String name) {
 		monkeysCrossing[direction]--;
 		notifyAll();
-		System.out.println("1 monkey has finished crossing to the "+ way[direction]+". "+  monkeysCrossing[direction] + " monkey/s left crossing to the "+ way[direction]);
+		System.out.println(name+ " monkey has finished crossing to the "+ way[direction]+". "+  monkeysCrossing[direction] + " monkey/s left crossing to the "+ way[direction]);
 	}
 
 }
