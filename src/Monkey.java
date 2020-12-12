@@ -31,9 +31,9 @@ public class Monkey implements Runnable{
 			rope.cross(mDir, color);
 			// Using the function sleep to represent the time the "Monkey" takes to cross the Rope
 			Thread.sleep((4000));
-			System.out.println(color + " monkey has almost crossed the rope to the "+ way[mDir]+"." );
+//			System.out.println(color + " monkey has almost crossed the rope to the "+ way[mDir]+"." );
 			rope.leave(mDir, color);
-			System.out.println(color + " monkey has crossed the rope.");
+//			System.out.println(color + " monkey has crossed the rope.");
 			
 		}catch (InterruptedException e) {
 			e.printStackTrace();

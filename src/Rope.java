@@ -51,7 +51,7 @@ public class Rope {
 				// Auxiliar messages to see the program execution
 				if(auxMessage==0) {
 					if(monkeysCrossing[1-direction] > 0) {
-						System.out.println(name+ " monkey waiting to other monkey finish crossing in opposite direction.");
+						System.out.println(name+ " monkey waiting for other monkey to finish crossing from the opposite direction.");
 					}
 					if((monkeysCrossing[direction] > 0)&&(directionPriority[1-direction]==1)) 
 						System.out.println(name+ " monkey waiting because there are other monkeys in the opposite side waiting already.");					
@@ -67,7 +67,6 @@ public class Rope {
 		// Increase and decrease the values of the respective arrays indicating the progress of the "Monkey"
 		numMonkeysWaiting[direction]--;
 		monkeysCrossing[direction]++;
-		
 		// If it is necessary to make the monkeys go one by one in case there are monkeys waiting in both sides
 		/*if(numMonkeysWaiting[1- direction]>0)
 			directionPriority[1-direction]=1;*/
@@ -80,7 +79,8 @@ public class Rope {
 		
 		// Auxiliar messages to follow progress of the program
 		System.out.println(numMonkeysWaiting[direction] + " monkey/s waiting to cross to the "+ way[direction]+".");
-		System.out.println(monkeysCrossing[direction] + " monkey/s crossing to the "+ way[direction]+".");
+//		System.out.println(name+ " monkey crossing to the "+ way[direction]+".");
+		System.out.println(name+ " monkey crossing to the "+ way[direction]+". " + monkeysCrossing[direction] + " monkey/s crossing to the "+ way[direction]+".");
 	}
 	
 	public synchronized void leave(int direction, String name) {
