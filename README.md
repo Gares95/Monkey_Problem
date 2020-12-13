@@ -53,3 +53,9 @@ Being _Threads_ the basic unit of execution for concurrent programming in the Ja
 Here you can see a Diagram representing the _Guarded Block_ implemented in the program with the conditions in the class _Rope_.
 
 ![alt text](https://raw.githubusercontent.com/Gares95/Monkey_Problem/master/Img/Diagram.png)
+
+# Example of result
+***
+Here you can see an example of the output obtained using this concurrency program.
+
+![alt text](https://raw.githubusercontent.com/Gares95/Monkey_Problem/master/Img/Result.PNG)
