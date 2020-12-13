@@ -13,6 +13,8 @@ The first version of this repository contains the java classes:
 - Monkey.java: The  Monkey class that implements Runnable will perform different actions using the methods of the class Rope.
 - Canyon.java: Auxiliary class to visualize the threads' (monkeys) state.
 
+The repository contains a **Script** to test the program.
+
 # Description of the concurrency example
 We want to know if African monkeys can be taught about deadlocks. She locates a deep canyon and
 fastens a rope across it, so the monkeys can cross hand-over-hand.
