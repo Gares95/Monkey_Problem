@@ -1,5 +1,4 @@
-/* Rope class that contains the methods to cross the Rope. It also contains the conditions and functions
- * to handle concurrency.*/
+
 public class Rope {
 	// Array that will contain the number of "Monkeys" waiting in each side ([0] = "East", [1]= "West")
 	private int[] numMonkeysWaiting;
@@ -10,12 +9,19 @@ public class Rope {
 	
 	// Array that contains the name of the sides of the canyon
 	private String [] way = new String[]{"East", "West"};
+	private Canyon canyon;
 	
 	// Constructor
-	public Rope() {
+	public Rope(Canyon canyon) {
 		numMonkeysWaiting = new int[]{0,0};
 		monkeysCrossing = new int[]{0,0};
 		directionPriority = new int[]{1,1};
+		this.canyon = canyon;
+	}
+	
+	public synchronized void showUp(int direction, String name) throws InterruptedException{
+		// Initial message to indicate that the instance of Monkey was created and is running
+		System.out.println(name + " monkey showed up from "+ way[1-direction]+" wanting to cross to the " + way[direction]+".");	
 	}
 	
 	/* Method cross:
@@ -32,8 +38,9 @@ public class Rope {
 		
 		// When the method begins it adds a "Monkey" to the array indicating the number of "Monkeys" waiting in each side
 		numMonkeysWaiting[direction]++;
+		canyon.addWaitMonkey(name, direction);
 		System.out.println(numMonkeysWaiting[direction] + " monkey/s waiting to cross to the "+ way[direction]+".");
-
+		canyon.printStats();
 		// Auxiliar variable to print message only once
 		int auxMessage = 0;
 		
@@ -51,10 +58,10 @@ public class Rope {
 				// Auxiliar messages to see the program execution
 				if(auxMessage==0) {
 					if(monkeysCrossing[1-direction] > 0) {
-						System.out.println(name+ " monkey waiting for other monkey to finish crossing from the opposite direction.");
+						System.out.println(name+" monkey waiting to other monkey finish crossing in opposite direction.");
 					}
 					if((monkeysCrossing[direction] > 0)&&(directionPriority[1-direction]==1)) 
-						System.out.println(name+ " monkey waiting because there are other monkeys in the opposite side waiting already.");					
+						System.out.println(name+" monkey waiting because there are other monkeys in the opposite side waiting already.");					
 					auxMessage++;
 				}
 				// invoke wait to suspend the current thread until another thread issues a notification
@@ -67,6 +74,8 @@ public class Rope {
 		// Increase and decrease the values of the respective arrays indicating the progress of the "Monkey"
 		numMonkeysWaiting[direction]--;
 		monkeysCrossing[direction]++;
+		canyon.addCrossingMonkey(name, direction);
+		
 		// If it is necessary to make the monkeys go one by one in case there are monkeys waiting in both sides
 		/*if(numMonkeysWaiting[1- direction]>0)
 			directionPriority[1-direction]=1;*/
@@ -79,14 +88,16 @@ public class Rope {
 		
 		// Auxiliar messages to follow progress of the program
 		System.out.println(numMonkeysWaiting[direction] + " monkey/s waiting to cross to the "+ way[direction]+".");
-//		System.out.println(name+ " monkey crossing to the "+ way[direction]+".");
 		System.out.println(name+ " monkey crossing to the "+ way[direction]+". " + monkeysCrossing[direction] + " monkey/s crossing to the "+ way[direction]+".");
+		canyon.printStats();
 	}
 	
 	public synchronized void leave(int direction, String name) {
 		monkeysCrossing[direction]--;
+		canyon.removeMonkey(name, direction);
+		System.out.println(name+" monkey has finished crossing to the "+ way[direction]+". "+  monkeysCrossing[direction] + " monkey/s left crossing to the "+ way[direction]);
+		canyon.printStats();
 		notifyAll();
-		System.out.println(name+ " monkey has finished crossing to the "+ way[direction]+". "+  monkeysCrossing[direction] + " monkey/s left crossing to the "+ way[direction]);
-	}
+		}
 
 }

@@ -4,9 +4,10 @@ import java.util.Random;
  * that will run during this concurrency exercise.*/
 public class Main {	
 	public static void main( String[] args) {
+		Canyon canyon = new Canyon();
+
 		// Instance of the class Rope 
-		Rope rope = new Rope();
-		
+		Rope rope = new Rope(canyon);
 		// Auxiliar variable to select the direction the instances of the class Monkey will be taking
 		int direction;
 		
