@@ -8,7 +8,7 @@ public class Main {
 
 		// Instance of the class Rope 
 		Rope rope = new Rope(canyon);
-		// Auxiliar variable to select the direction the instances of the class Monkey will be taking
+		// Auxiliary variable to select the direction the instances of the class Monkey will be taking
 		int direction;
 		
 		// Array of colors that will differentiate the instances of the class Monkey
@@ -29,7 +29,7 @@ public class Main {
 		// Array of Threads that will run the instances of the class Monkey
 		Thread [] hilos = new Thread[nMonkeys];
 		
-		// Auxiliar variable to get the random values
+		// Auxiliary variable to get the random values
 		Random random = new Random();
 		
 		for (int i = 0; i<nMonkeys; i++) {

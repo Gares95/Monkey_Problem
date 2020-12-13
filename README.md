@@ -11,7 +11,7 @@ The first version of this repository contains the java classes:
 - Main.java: Main function to create the instances of the different classes and to start the Threads that will run during this concurrency exercise. 
 - Rope.java: Rope class that contains the methods to cross the Rope. It also contains the conditions and functions to handle concurrency.
 - Monkey.java: The  Monkey class that implements Runnable will perform different actions using the methods of the class Rope.
-- Canyon.java: Auxiliar class to visualize the threads' (monkeys) state.
+- Canyon.java: Auxiliary class to visualize the threads' (monkeys) state.
 
 # Description of the concurrency example
 We want to know if African monkeys can be taught about deadlocks. She locates a deep canyon and

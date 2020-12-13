@@ -1,5 +1,5 @@
 import java.util.*;
-/* Auxiliar class to visualize the threads' (monkeys) state.*/
+/* Auxiliary class to visualize the threads' (monkeys) state.*/
 public class Canyon {
 	
 	// Lists to track the number of monkeys traveling and waiting from each side
@@ -8,7 +8,7 @@ public class Canyon {
 	private List<String> CrossingWL;
 	private List<String> CrossingEL;
 	
-	// Auxiliar string to print for each column minus the length of the monkey name
+	// Auxiliary string to print for each column minus the length of the monkey name
 	private String sep = "           |    ";
 	
 	// Constructor
@@ -59,10 +59,10 @@ public class Canyon {
 	// Function that prints a table with the monkeys waiting and crossing
 	public void printStats() {
 		
-		// Auxiliar int to count the number of characteres to remove from the String "sep"
+		// Auxiliary int to count the number of characteres to remove from the String "sep"
 		int aux = 0;
 		
-		// Auxiliar int to get the greatest number of rows for each iteration
+		// Auxiliary int to get the greatest number of rows for each iteration
 		int maxRows = Math.max(Math.max(WEL.size(),CrossingEL.size()),CrossingWL.size());
 		maxRows = Math.max(maxRows, WWL.size());
 		

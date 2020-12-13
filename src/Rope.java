@@ -2,7 +2,7 @@
 public class Rope {
 	// Array that will contain the number of "Monkeys" waiting in each side ([0] = "East", [1]= "West")
 	private int[] numMonkeysWaiting;
-	// Array that will contain the number of "Monkeys" currently croosing the rope
+	// Array that will contain the number of "Monkeys" currently crossing the rope
 	private int[] monkeysCrossing;
 	// Array that will contain the values to indicate which side has priority (1 has priority, 0 does not)
 	private int[] directionPriority;
@@ -41,7 +41,7 @@ public class Rope {
 		canyon.addWaitMonkey(name, direction);
 		System.out.println(numMonkeysWaiting[direction] + " monkey/s waiting to cross to the "+ way[direction]+".");
 		canyon.printStats();
-		// Auxiliar variable to print message only once
+		// Auxiliary variable to print message only once
 		int auxMessage = 0;
 		
 		// Guarded Block condition: 
@@ -55,7 +55,7 @@ public class Rope {
 					directionPriority[1-direction]=0;
 				}
 				
-				// Auxiliar messages to see the program execution
+				// Auxiliary messages to see the program execution
 				if(auxMessage==0) {
 					if(monkeysCrossing[1-direction] > 0) {
 						System.out.println(name+" monkey waiting to other monkey finish crossing in opposite direction.");
@@ -86,7 +86,7 @@ public class Rope {
 		// Notify the other Threads
 		notifyAll();
 		
-		// Auxiliar messages to follow progress of the program
+		// Auxiliary messages to follow progress of the program
 		System.out.println(numMonkeysWaiting[direction] + " monkey/s waiting to cross to the "+ way[direction]+".");
 		System.out.println(name+ " monkey crossing to the "+ way[direction]+". " + monkeysCrossing[direction] + " monkey/s crossing to the "+ way[direction]+".");
 		canyon.printStats();
