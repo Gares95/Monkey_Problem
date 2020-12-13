@@ -1,5 +1,4 @@
 # Monkey_Problem
-***
 This repository includes the files necessary to implement a Java program which will serve as a concurrency example.
 
 The main objective of the program is to perform an efficient concurrency program where the instances of the class _Monkey_ have to share an instance of the class _Rope_ to cross a canyon.
@@ -8,7 +7,6 @@ The program allows a command line argument to select the number of instances of 
 Example: `java Monkey_Problem 3` will start the program creating and running only 3 instances of the class _Monkey_.
 
 # Program Files
-***
 The first version of this repository contains the java classes: 
 - Main.java: Main function to create the instances of the different classes and to start the Threads that will run during this concurrency exercise. 
 - Rope.java: Rope class that contains the methods to cross the Rope. It also contains the conditions and functions to handle concurrency.
@@ -16,7 +14,6 @@ The first version of this repository contains the java classes:
 - Canyon.java: Auxiliar class to visualize the threads' (monkeys) state.
 
 # Description of the concurrency example
-***
 We want to know if African monkeys can be taught about deadlocks. She locates a deep canyon and
 fastens a rope across it, so the monkeys can cross hand-over-hand.
 Passage along the rope follows these rules:
@@ -43,19 +40,16 @@ seconds.
 is on the rope.
 
 # Approach
-***
 The approach adopted for this problem was using _intrinsic locks_ or _Monitors_ to enforce the exclusive access to the instance _Rope_ and to guarantee that the intances of the class _Monkey_ follow the requirements indicated in the description of the problem (considering the order of execution for each Thread and their interruptions) as well as the proper function of the concurrency program avoiding _Dead Locks_ and _Starvation_.
 
 Being _Threads_ the basic unit of execution for concurrent programming in the Java programming language the instances of the class Monkey are _Runnable objects_ (Implements Runnable). Here you can find my other repository for this same exercise in Scala: https://github.com/Gares95/Monkey_Problem_Scala
 
 # Diagram
-***
 Here you can see a Diagram representing the _Guarded Block_ implemented in the program with the conditions in the class _Rope_.
 
 ![alt text](https://raw.githubusercontent.com/Gares95/Monkey_Problem/master/Img/Diagram.png)
 
 # Example of result
-***
 Here you can see an example of the output obtained using this concurrency program.
 
 ![alt text](https://raw.githubusercontent.com/Gares95/Monkey_Problem/master/Img/Result.PNG)
