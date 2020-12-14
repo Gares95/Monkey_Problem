@@ -13,7 +13,7 @@ public class Main {
 		if (ans.equals("y")||(ans.equals("Y"))||(ans.equals("yes"))) {
 			canyon = new CanyonColorized();
 		}
-		else if (ans.equals("n")||(ans.equals("N"))||(ans.equals("no"))||(ans.equals("\\n")))
+		else if (ans.equals("n")||(ans.equals("N"))||(ans.equals("no"))||(ans.equals("\\n"))||(ans.equals("")))
 			canyon = new Canyon();
 		else {
 			canyon = new Canyon();
