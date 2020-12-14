@@ -54,4 +54,8 @@ Here you can see a Diagram representing the _Guarded Block_ implemented in the p
 # Results
 Here you can see an example of the resulted output after running this concurrency program (running only 5 instances of the class monkey or threads). 
 
-![alt text](https://raw.githubusercontent.com/Gares95/Monkey_Problem/master/Img/Result.png)
+![alt text](https://raw.githubusercontent.com/Gares95/Monkey_Problem/master/Img/Result.PNG)
+
+Here you can see an example of the output using the colorized version. 
+
+![alt text](https://raw.githubusercontent.com/Gares95/Monkey_Problem/master/Img/Result-Colorized.PNG)
