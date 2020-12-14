@@ -58,4 +58,4 @@ Here you can see an example of the resulted output after running this concurrenc
 
 Here you can see an example of the output using the colorized version. 
 
-![alt text](https://raw.githubusercontent.com/Gares95/Monkey_Problem/master/Img/Result-Colorized.PNG)
+![alt text](https://raw.githubusercontent.com/Gares95/Monkey_Problem/master/Img/Result-Colorized.png)
