@@ -3,10 +3,10 @@ import java.util.*;
 public class Canyon {
 	
 	// Lists to track the number of monkeys traveling and waiting from each side
-	private List<String> WWL;
-	private List<String> WEL;
-	private List<String> CrossingWL;
-	private List<String> CrossingEL;
+	public List<String> WWL;
+	public List<String> WEL;
+	public List<String> CrossingWL;
+	public List<String> CrossingEL;
 	
 	// Auxiliary string to print for each column minus the length of the monkey name
 	private String sep = "           |    ";
@@ -59,7 +59,7 @@ public class Canyon {
 	// Function that prints a table with the monkeys waiting and crossing
 	public void printStats() {
 		
-		// Auxiliary int to count the number of characteres to remove from the String "sep"
+		// Auxiliary int to count the number of characters to remove from the String "sep"
 		int aux = 0;
 		
 		// Auxiliary int to get the greatest number of rows for each iteration

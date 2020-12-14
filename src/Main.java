@@ -1,10 +1,26 @@
 import java.util.Random;
+import java.util.Scanner;
 
 /* Main function to create the instances of the different classes and to start the Threads 
  * that will run during this concurrency exercise.*/
 public class Main {	
 	public static void main( String[] args) {
-		Canyon canyon = new Canyon();
+		Canyon canyon;
+		Scanner scanner = new Scanner(System.in);
+		
+		System.out.println("Would you like to the colourised version of the output? [y/n] (Unix and Linux systems)");
+		String ans = scanner.nextLine();
+		if (ans.equals("y")||(ans.equals("Y"))||(ans.equals("yes"))) {
+			canyon = new CanyonColorized();
+		}
+		else if (ans.equals("n")||(ans.equals("N"))||(ans.equals("no"))||(ans.equals("\\n")))
+			canyon = new Canyon();
+		else {
+			canyon = new Canyon();
+			System.err.println("Invalid answer.");
+			System.exit(1);
+		}
+		scanner.close();
 
 		// Instance of the class Rope 
 		Rope rope = new Rope(canyon);
