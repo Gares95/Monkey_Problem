@@ -23,7 +23,8 @@ public class Monkey implements Runnable{
 			// Thread.sleep((random.nextInt(9)*1000));
 			
 			// Initial message to indicate that the instance of Monkey was created and is running
-			System.out.println(color + " monkey showed up from "+ way[1-mDir]+" wanting to cross to the " + way[mDir]+".");
+			// System.out.println(color + " monkey showed up from "+ way[1-mDir]+" wanting to cross to the " + way[mDir]+".");
+			rope.showUp(mDir, color);
 			
 			// Using the function sleep to represent the time the "Monkey" takes to reach the Rope
 			Thread.sleep((1000));
@@ -31,9 +32,9 @@ public class Monkey implements Runnable{
 			rope.cross(mDir, color);
 			// Using the function sleep to represent the time the "Monkey" takes to cross the Rope
 			Thread.sleep((4000));
-//			System.out.println(color + " monkey has almost crossed the rope to the "+ way[mDir]+"." );
+			// System.out.println(color + " monkey has almost crossed the rope to the "+ way[mDir]+"." );
 			rope.leave(mDir, color);
-//			System.out.println(color + " monkey has crossed the rope.");
+			// System.out.println(color + " monkey has crossed the rope.");
 			
 		}catch (InterruptedException e) {
 			e.printStackTrace();

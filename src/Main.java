@@ -4,14 +4,15 @@ import java.util.Random;
  * that will run during this concurrency exercise.*/
 public class Main {	
 	public static void main( String[] args) {
+		Canyon canyon = new Canyon();
+
 		// Instance of the class Rope 
-		Rope rope = new Rope();
-		
+		Rope rope = new Rope(canyon);
 		// Auxiliary variable to select the direction the instances of the class Monkey will be taking
 		int direction;
 		
 		// Array of colors that will differentiate the instances of the class Monkey
-		String [] colors = new String[] {"Red", "Yellow", "Blue", "Brown", "White", "Grey", "Pink", "Orange"};
+		String [] colors = new String[] {"Red", "Green", "Blue", "Yellow", "Pink", "Cyan", "White", "Black"};
 		
 		// The default number of the instances of the class Monkey is 8
 		int nMonkeys = 8;
