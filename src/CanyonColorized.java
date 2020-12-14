@@ -1,6 +1,6 @@
 import java.util.*;
 /* Auxiliary class to visualize the threads' (monkeys) state.*/
-public class Canyon {
+public class CanyonColorized {
 	
 	// Lists to track the number of monkeys traveling and waiting from each side
 	private List<String> WWL;
@@ -17,7 +17,7 @@ public class Canyon {
 	private String sep = "  |                    ";
 	
 	// Constructor
-	public Canyon(){
+	public CanyonColorized(){
 		WWL = new LinkedList<String>();
 		WEL = new LinkedList<String>();
 		CrossingEL = new LinkedList<String>();
