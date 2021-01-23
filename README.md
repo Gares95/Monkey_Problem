@@ -3,7 +3,7 @@ This repository includes the files necessary to implement a Java program which w
 
 The main objective of the program is to perform an efficient concurrency program where the instances of the class _Monkey_ have to share an instance of the class _Rope_ to cross a canyon.
 
-The program allows a command line argument to select the number of instances of the class Monkey to create and start (there will be 8 by default).
+The program allows the user to inser in the command line an argument to select how many instances of the class Monkey are going to be created (there will be 8 by default).
 Example: `java Monkey_Problem 3` will start the program creating and running only 3 instances of the class _Monkey_.
 The program starts by asking the user if they want to use the version with the colourised output (or the standard one).
 
